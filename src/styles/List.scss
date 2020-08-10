@@ -1,3 +1,51 @@
+@import "./vars.scss";
+
+.list-block {
+  flex-direction: column;
+
+  @include flex-align-center;
+}
+
+.search {
+  display: flex;
+  margin: 10px 0;
+
+  &-group {
+    position: relative;
+
+    &__input {
+      padding: 0.2rem 1.1rem 0.2rem 0.2rem;
+    }
+
+    &__icon {
+      position: absolute;
+      right: 2px;
+      top: 2px;
+    }
+  }
+}
+
 .selected {
   fill: green !important;
+  @include transition;
+}
+
+.countries-list {
+  &__item {
+    opacity: 0.5;
+
+    &:not(:first-child) {
+      margin-top: 5px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.clicked {
+  box-shadow: 0 8px 0.5px -5pt $color-black, 0 -8px 0.5px -5pt $color-black;
+  font-weight: bold;
+  opacity: 1;
 }

@@ -5,3 +5,8 @@ $color-black: #000000;
 @mixin transition {
   transition: 0.2s;
 }
+
+@mixin flex-align-center {
+  align-items: center;
+  display: flex;
+}
