@@ -3,6 +3,7 @@
 @import "./styles/Card.scss";
 @import "./styles/CustomBtn.scss";
 @import "./styles/CustomInput.scss";
+@import "./styles/CustomCheckbox.scss";
 @import "./styles/List.scss";
 @import "./styles/Spinner.scss";
 @import "./styles/Common.scss";

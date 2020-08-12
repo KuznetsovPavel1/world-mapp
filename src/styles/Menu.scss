@@ -7,31 +7,13 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  //   justify-content: center;
 
-  //   &-block {
-  //     background-color: $color-form;
-  //     border-radius: $radius;
-  // margin: 5px 0;
-  // max-height: 350px;
-  // overflow-y: auto;
-  // padding: 20px;
-  // width: 350px;
-
-  // &:not(:first-child) {
-  //   margin-top: 10px;
-  // }
-  //   }
-
-  &-control {
-    &__btns {
-      display: flex;
-      justify-content: center;
-    }
+  &-control__btns {
+    display: flex;
+    justify-content: center;
   }
 
   &-view {
-    // display: flex;
-    // justify-content: center;
+    margin-top: 20px;
   }
 }

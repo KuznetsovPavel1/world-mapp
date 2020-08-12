@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { getAllCountries } from "../../store/actions/countriesActions";
 import CustomInput from "../common/CustomInput";
+import CustomCheckbox from "../common/CustomCheckbox";
 import List from "../list/List";
-// import { Card } from "../card/Card";
 
-export const Menu = ({ countries: { list, selected }, getAllCountries }) => {
+export const Menu = ({ countries, getAllCountries }) => {
   const [regions, setRegions] = useState({
     Africa: true,
     Americas: true,
@@ -14,21 +14,21 @@ export const Menu = ({ countries: { list, selected }, getAllCountries }) => {
     Oceania: true,
   });
   const [search, setSearch] = useState("");
-  const [countriesArr, setCountries] = useState(list || []);
+  const [countriesArr, setCountries] = useState(countries || []);
 
   useEffect(() => {
     getAllCountries();
   }, [getAllCountries]);
 
   useEffect(() => {
-    setCountries(list || []);
-  }, [list]);
+    setCountries(countries || []);
+  }, [countries]);
 
   useEffect(() => {
-    if (list !== "loading") {
+    if (countries !== "loading") {
       const str = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
 
-      const countriesFilter = list?.filter((country) => {
+      const countriesFilter = countries?.filter((country) => {
         const regexp = new RegExp("^.*" + str + ".*$", "i");
 
         return regexp.test(country.name);
@@ -36,21 +36,17 @@ export const Menu = ({ countries: { list, selected }, getAllCountries }) => {
 
       setCountries(countriesFilter);
     }
-  }, [search, list]);
+  }, [search, countries]);
 
   return (
     <div className="menu">
-      {/* <div className="menu-block menu-control"> */}
       <div className="menu-control">
         <div className="menu-control__btns">
           {Object.keys(regions).map((region, i) => {
             const checked = regions[region];
             return (
-              <CustomInput
+              <CustomCheckbox
                 key={i}
-                type="checkbox"
-                className="custom-form-row-r"
-                label={region}
                 value={region}
                 checked={checked}
                 onChange={() => setRegions({ ...regions, [region]: !checked })}
@@ -66,7 +62,6 @@ export const Menu = ({ countries: { list, selected }, getAllCountries }) => {
         {/* area filter */}
         {/* population filter */}
       </div>
-      {/* <div className="menu-block menu-view"> */}
       <div className="menu-view">
         <List countries={countriesArr} />
       </div>
@@ -75,7 +70,7 @@ export const Menu = ({ countries: { list, selected }, getAllCountries }) => {
 };
 
 const mapStateToProps = (state) => ({
-  countries: state.countries,
+  countries: state.countries.list,
 });
 
 export default connect(mapStateToProps, { getAllCountries })(Menu);

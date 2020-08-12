@@ -17,6 +17,11 @@ export const getAllCountries = () => async (dispatch) => {
     });
   } catch (error) {
     dispatch({
+      type: "GET_COUNTRIES",
+      payload: [],
+    });
+
+    dispatch({
       type: "GET_ERRORS",
       payload: error?.response?.data,
     });
@@ -40,6 +45,11 @@ export const getCountryByName = (name) => async (dispatch) => {
       payload: res.data[0],
     });
   } catch (error) {
+    dispatch({
+      type: "GET_COUNTRY",
+      payload: {},
+    });
+
     dispatch({
       type: "GET_ERRORS",
       payload: error?.response?.data,
