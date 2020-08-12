@@ -1,3 +1,21 @@
+@import "./vars.scss";
+
 .main {
   text-align: center;
+
+  &-title {
+  }
+
+  &-subtitle {
+  }
+
+  &-body {
+    display: flex;
+    justify-content: center;
+
+    &__view {
+      flex-basis: 70%;
+      margin-left: 30px;
+    }
+  }
 }

@@ -1,0 +1,16 @@
+.card {
+  padding: 20px;
+  // margin-left: 20px;
+  &-inner {
+    display: flex;
+    justify-content: center;
+
+    &__flag {
+      max-width: 300px;
+    }
+
+    &__data {
+      margin-left: 20px;
+    }
+  }
+}

@@ -1,18 +1,31 @@
 @import "./styles/Main.scss";
+@import "./styles/Menu.scss";
 @import "./styles/Card.scss";
 @import "./styles/CustomBtn.scss";
+@import "./styles/CustomInput.scss";
 @import "./styles/List.scss";
 @import "./styles/Spinner.scss";
+@import "./styles/Common.scss";
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  margin: 0 20px;
+  margin: 0;
   padding: 0;
 }
 
-.App {
-  /* padding: 20px; */
+.app {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+h1,
+h3 {
+  margin-top: 0;
 }

@@ -1,8 +1,11 @@
+@import "./vars.scss";
+
 .map {
-  // width: 90vw;
-  height: 45vw;
-  max-height: 50vh;
+  width: 60vw;
+  // height: 45vw;
+  // max-height: 40vh;
   // min-width: 400px;
+  margin-bottom: 10px;
 }
 
 /* <!-- Done up to row 1708 -->
@@ -142,3 +145,13 @@
  * }
  *
  */
+
+.view {
+  fill: $color-gray;
+  @include transition;
+}
+
+.selected {
+  fill: $color-green;
+  @include transition;
+}

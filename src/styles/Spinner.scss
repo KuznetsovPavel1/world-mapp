@@ -7,8 +7,10 @@ $right: translate(24px, $size);
 $left: translate(0, $size);
 
 .wrapper {
+  align-items: center;
+  display: flex;
   justify-content: center;
-  @include flex-align-center;
+  // @include flex-align-center;
 }
 
 .spinner {
