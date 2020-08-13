@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { getCountryByName } from "../../store/actions/countriesActions";
-import CustomBtn from "../common/CustomBtn";
 import Spinner from "../common/Spinner";
 
 const List = ({ countries, getCountryByName }) => {
-  // const [view, setView] = useState("list");
   const [clickedName, setClickedName] = useState(-1);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [list, setList] = useState([]);
@@ -72,36 +70,27 @@ const List = ({ countries, getCountryByName }) => {
     }
   };
 
-  return (
+  return countries === "loading" ? (
+    <Spinner />
+  ) : (
     <div className="countries-list">
-      {countries === "loading" ? (
-        <Spinner />
-      ) : (
-        countries?.map((country, i) => {
-          return (
-            <div
-              className={`countries-list__item ${
-                i === clickedName ? "clicked" : ""
-              }`}
-              key={i}
-              onClick={() =>
-                onClick(i, country.alpha2Code?.toLowerCase(), country.name)
-              }
-            >
-              {country.name}
-            </div>
-          );
-        })
-      )}
+      {countries?.map((country, i) => {
+        return (
+          <div
+            className={`countries-list__item ${
+              i === clickedName ? "clicked" : ""
+            }`}
+            key={i}
+            onClick={() =>
+              onClick(i, country.alpha2Code?.toLowerCase(), country.name)
+            }
+          >
+            {country.name}
+          </div>
+        );
+      })}
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  // loading: state.loading,
-  // countries: state.countries.list,
-});
-
-export default connect(mapStateToProps, {
-  /* getAllCountries,*/ getCountryByName,
-})(List);
+export default connect(null, { getCountryByName })(List);

@@ -12,6 +12,7 @@ export const Menu = ({ countries, getAllCountries }) => {
     Asia: true,
     Europe: true,
     Oceania: true,
+    Polar: true,
   });
   const [search, setSearch] = useState("");
   const [countriesArr, setCountries] = useState(countries || []);
@@ -31,12 +32,12 @@ export const Menu = ({ countries, getAllCountries }) => {
       const countriesFilter = countries?.filter((country) => {
         const regexp = new RegExp("^.*" + str + ".*$", "i");
 
-        return regexp.test(country.name);
+        return regexp.test(country.name) && regions[country.region];
       });
 
       setCountries(countriesFilter);
     }
-  }, [search, countries]);
+  }, [search, countries, regions]);
 
   return (
     <div className="menu">

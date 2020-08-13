@@ -16,50 +16,61 @@ const Card = ({ country }) => {
     currencies,
   } = country;
 
+  const tableFields = {
+    "Native name: ": nativeName,
+    "Region: ": region,
+    "Subregion: ": subregion,
+    "Area (km²): ": area,
+    "Population: ": population,
+    "Capital: ": capital,
+    "Languages: ": languages,
+    "Currencies: ": currencies,
+  };
+
   return (
     Object.keys(country).length !== 0 && (
-      // <div className="form-block">
-      <div className="card">
+      <div className="wrapper">
         {country === "loading" ? (
           <Spinner />
         ) : (
-          <Fragment>
+          <div className="card">
             <h3>{name}</h3>
             <div className="card-inner">
               {flag && (
-                <div>
-                  <img src={flag} alt="flag" className="card-inner__flag" />
-                </div>
+                <img src={flag} alt="flag" className="card-inner__flag" />
               )}
               <div className="card-inner__data">
-                {nativeName && <div>Native name: {nativeName}</div>}
-                {region && <div>Region: {region}</div>}
-                {subregion && <div>Subregion: {subregion}</div>}
-                {area && <div>Area: {area + " km²"}</div>}
-                {population && <div>Population: {population}</div>}
-                {capital && <div>Capital: {capital}</div>}
-                {languages?.length > 0 && (
-                  <div>
-                    Languages:
-                    {languages?.map((lang, i) => (
-                      <div key={i}>{lang.name}</div>
-                    ))}
-                  </div>
-                )}
-                {currencies?.length > 0 && (
-                  <div>
-                    Currencies:
-                    {currencies?.map((currency, i) => (
-                      <div key={i}>
-                        {(currency.name || "") + " " + (currency.symbol || "")}
+                {Object.keys(tableFields).map((key, i) => {
+                  const row = tableFields[key];
+                  let val;
+
+                  if (Array.isArray(row)) {
+                    val = (
+                      <span className="tbl-cell__val">
+                        {row.map((item, j) => (
+                          <div key={j}>
+                            {(item.name || "") + " " + (item.symbol || "")}
+                          </div>
+                        ))}
+                      </span>
+                    );
+                  } else {
+                    val = <span className="tbl-cell__val">{row}</span>;
+                  }
+
+                  return (
+                    <Fragment key={i}>
+                      {/* {i > 0 && <hr />} */}
+                      <div className="tbl-row">
+                        <span className="tbl-cell__title">{key}</span>
+                        {val}
                       </div>
-                    ))}
-                  </div>
-                )}
+                    </Fragment>
+                  );
+                })}
               </div>
             </div>
-          </Fragment>
-          // {/* </div> */}
+          </div>
         )}
       </div>
     )

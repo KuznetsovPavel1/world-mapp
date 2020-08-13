@@ -9,7 +9,9 @@
   padding: 20px;
 
   &-control__btns {
+    align-items: center;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
   }
 

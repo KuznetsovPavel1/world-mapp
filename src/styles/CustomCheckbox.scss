@@ -4,7 +4,8 @@
   background-color: #fff;
   border: 1px solid black;
   border-radius: $radius;
-  box-shadow: 2px 2px 1pt 1pt gray;
+  box-shadow: 2px 2px 2px 2px gray;
+  margin: 0.5rem 0;
   padding: 5px 10px 5px 30px;
   @include transition;
 
@@ -46,5 +47,6 @@
 }
 
 .checkbox-checked {
-  box-shadow: none;
+  // box-shadow: none;
+  box-shadow: 0 0 2px;
 }

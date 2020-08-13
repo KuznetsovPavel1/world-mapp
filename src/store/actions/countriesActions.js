@@ -8,7 +8,7 @@ export const getAllCountries = () => async (dispatch) => {
     });
 
     const res = await axios.get(
-      "https://restcountries.eu/rest/v2/all?fields=name;alpha2Code"
+      "https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;region"
     );
 
     dispatch({
@@ -37,7 +37,7 @@ export const getCountryByName = (name) => async (dispatch) => {
 
     const res = await axios.get(
       // `https://restcountries.eu/rest/v2/name/${name}?fullText=true;fields=name;alpha2Code;capital;region;subregion;population;area;timezones;nativeName;currencies;languages;flag`
-      `https://restcountries.eu/rest/v2/name/${name}?fullText=true`
+      `https://restcountries.eu/rest/v2/name/${name}?fields=name;alpha2Code;capital;region;subregion;population;area;timezones;nativeName;currencies;languages;flag;fullText=true`
     );
 
     dispatch({
