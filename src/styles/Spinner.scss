@@ -10,7 +10,6 @@ $left: translate(0, $size);
   align-items: center;
   display: flex;
   justify-content: center;
-  // @include flex-align-center;
 }
 
 .spinner {
@@ -28,17 +27,12 @@ $left: translate(0, $size);
 
   &-red {
     animation: $animProp move-red;
-    background-color: red;
+    background-color: $color-red;
   }
 
-  // &-white,
   &-black {
     animation: $animProp move-bw;
   }
-
-  // &-white {
-  //   background-color: $color-white;
-  // }
 
   &-black {
     background-color: $color-black;
@@ -46,7 +40,7 @@ $left: translate(0, $size);
 
   &-gray {
     animation: $animProp move-gray;
-    background-color: gray;
+    background-color: $color-gray;
   }
 }
 

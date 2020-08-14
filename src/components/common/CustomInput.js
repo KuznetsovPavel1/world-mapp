@@ -35,9 +35,7 @@ const CustomInput = ({ label = "", value = "", onChange }) => {
         className="custom-input__text"
         type="text"
         onChange={onChange}
-        onFocus={() => {
-          setPlaceholder("");
-        }}
+        onFocus={() => setPlaceholder("")}
         onBlur={() => {
           if (value === "") {
             setPlaceholder("placeholder");

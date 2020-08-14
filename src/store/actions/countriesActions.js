@@ -2,10 +2,7 @@ import axios from "axios";
 
 export const getAllCountries = () => async (dispatch) => {
   try {
-    dispatch({
-      type: "GET_COUNTRIES",
-      payload: "loading",
-    });
+    dispatch(loading());
 
     const res = await axios.get(
       "https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;region"
@@ -30,13 +27,9 @@ export const getAllCountries = () => async (dispatch) => {
 
 export const getCountryByName = (name) => async (dispatch) => {
   try {
-    dispatch({
-      type: "GET_COUNTRY",
-      payload: "loading",
-    });
+    dispatch(loading());
 
     const res = await axios.get(
-      // `https://restcountries.eu/rest/v2/name/${name}?fullText=true;fields=name;alpha2Code;capital;region;subregion;population;area;timezones;nativeName;currencies;languages;flag`
       `https://restcountries.eu/rest/v2/name/${name}?fields=name;alpha2Code;capital;region;subregion;population;area;timezones;nativeName;currencies;languages;flag;fullText=true`
     );
 
@@ -45,14 +38,25 @@ export const getCountryByName = (name) => async (dispatch) => {
       payload: res.data[0],
     });
   } catch (error) {
-    dispatch({
-      type: "GET_COUNTRY",
-      payload: {},
-    });
+    dispatch(clearCountry());
 
     dispatch({
       type: "GET_ERRORS",
       payload: error?.response?.data,
     });
   }
+};
+
+export const clearCountry = () => (dispatch) => {
+  dispatch({
+    type: "GET_COUNTRY",
+    payload: {},
+  });
+};
+
+export const loading = () => (dispatch) => {
+  dispatch({
+    type: "LOADING",
+    payload: true,
+  });
 };

@@ -1,21 +1,17 @@
 @import "./vars.scss";
 
 .custom-checkbox {
-  background-color: #fff;
-  border: 1px solid black;
+  background-color: $color-white;
+  border: 1px solid $color-black;
   border-radius: $radius;
-  box-shadow: 2px 2px 2px 2px gray;
-  margin: 0.5rem 0;
+  box-shadow: 2px 2px 2px 2px $color-gray;
+  margin: 5px;
   padding: 5px 10px 5px 30px;
   @include transition;
 
   &:hover {
-    background-color: rgba(210, 230, 240);
+    background-color: $color-hover;
     cursor: pointer;
-  }
-
-  &:not(:first-child) {
-    margin-left: 10px;
   }
 
   &__value {
@@ -23,7 +19,7 @@
 
     &::before {
       border-radius: 50%;
-      box-shadow: 0 0 2px 2px rgb(177, 177, 177);
+      box-shadow: 0 0 2px 2px $color-shadow-gray;
       content: "";
       display: block;
       height: 10px;
@@ -35,8 +31,8 @@
       @include transition;
 
       .custom-checkbox__input:checked + & {
-        background-color: rgb(20, 192, 50);
-        box-shadow: 0 0 2px 2px rgb(20, 192, 50);
+        background-color: $color-green;
+        box-shadow: 0 0 2px 2px $color-green;
       }
     }
   }
@@ -47,6 +43,5 @@
 }
 
 .checkbox-checked {
-  // box-shadow: none;
   box-shadow: 0 0 2px;
 }

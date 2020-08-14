@@ -1,7 +1,7 @@
 @import "./vars.scss";
 
 .map {
-  width: 60vw;
+  // width: 60vw;
   // height: 45vw;
   // max-height: 40vh;
   // min-width: 400px;
@@ -48,6 +48,8 @@
   stroke: #ffffff;
   stroke-width: 0.5;
   fill-rule: evenodd;
+
+  @include transition;
 }
 
 /*

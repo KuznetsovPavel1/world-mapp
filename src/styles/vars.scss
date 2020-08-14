@@ -1,33 +1,16 @@
 // COLORS
 $color-white: #fff;
 $color-black: #000000;
+$color-black-l: rgba(0, 0, 0, 0.1);
+$color-red: red;
 $color-gray: gray;
-// $color-form: rgb(210, 255, 240);
 $color-form: rgb(220, 230, 230);
-$color-green: rgb(15, 183, 49);
+$color-green: rgb(15, 185, 50);
+$color-hover: rgba(210, 230, 240);
+$color-shadow-gray: rgb(177, 177, 177);
 
 $radius: 0.3rem;
 
 @mixin transition {
   transition: 0.2s;
-}
-
-// @mixin flex-align-center {
-//   align-items: center;
-//   display: flex;
-// }
-
-@mixin input-border {
-  border: 1px solid $color-gray;
-  border-radius: $radius;
-}
-
-@mixin custom-field {
-  @include input-border;
-  padding: 0.3rem 0.5rem;
-
-  &:focus {
-    box-shadow: 0 0 6px 4px $color-gray;
-    outline: none;
-  }
 }

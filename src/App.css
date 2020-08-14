@@ -6,7 +6,6 @@
 @import "./styles/CustomCheckbox.scss";
 @import "./styles/List.scss";
 @import "./styles/Spinner.scss";
-@import "./styles/Common.scss";
 
 * {
   box-sizing: border-box;
@@ -29,4 +28,5 @@ body {
 h1,
 h3 {
   margin-top: 0;
+  margin-bottom: 20px;
 }

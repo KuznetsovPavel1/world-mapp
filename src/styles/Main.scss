@@ -4,18 +4,29 @@
   text-align: center;
 
   &-title {
+    display: inline-block;
+    font-weight: bold;
+    background-color: $color-form;
+    border-radius: $radius;
+    padding: 0.5rem;
   }
 
   &-subtitle {
+    background-color: $color-black;
+    border-radius: $radius;
+    color: $color-white;
+    padding: 0.2rem;
   }
 
   &-body {
+    align-items: flex-start;
     display: flex;
     justify-content: center;
 
     &__view {
       flex-basis: 70%;
       margin-left: 30px;
+      max-height: 50vh;
     }
   }
 }
